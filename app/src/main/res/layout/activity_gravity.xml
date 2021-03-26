@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Developed By:\nAli Mohsenian - 810196552\nSepehr Ghanbari - 810196529\nMohammad Salamati - 810196485\nMohammad Moein Shafi - 810196492"
+        android:text="this is Gravity activity"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
