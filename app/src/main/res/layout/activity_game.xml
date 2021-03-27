@@ -4,10 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GyroscopeActivity">
+    tools:context=".GameActivity">
+
+    <Button
+        android:id="@+id/shoot_ball"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginLeft="159dp"
+        android:layout_marginBottom="78dp"
+        android:onClick="shootTheBall"
+        android:text="Shoot !"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/using_sensor"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/using_sensor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="this is Gyroscope activity"
@@ -26,7 +39,7 @@
         android:layout_marginBottom="78dp"
         android:onClick="startGame"
         android:text="Start"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/using_sensor"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -37,7 +50,7 @@
         android:layout_marginLeft="162dp"
         android:layout_marginTop="35dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/using_sensor"
         app:srcCompat="@drawable/ball" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

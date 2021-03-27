@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String EXTRA_MESSAGE = "UsedSensor";
+    public static final String usingGyroscope = "using Gyroscope!";
+    public static final String usingGravity = "using Gravity!";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -15,11 +18,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void useGyroscope(View view) {
-        Intent intent = new Intent(this, GyroscopeActivity.class);
+        Intent intent = new Intent(this, GameActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, usingGyroscope);
         startActivity(intent);
     }
     public void useGravity(View view) {
-        Intent intent = new Intent(this, GravityActivity.class);
+        Intent intent = new Intent(this, GameActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, usingGravity);
         startActivity(intent);
     }
 
