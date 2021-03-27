@@ -3,7 +3,6 @@ package com.example.cps_ca3_g14;
 import android.widget.ImageView;
 
 public class Ball {
-
     float x, y;
     float xVelocity, yVelocity;
     float xAcceleration, yAcceleration;
@@ -20,18 +19,20 @@ public class Ball {
         this.yAcceleration = yAcceleration;
         this.mass = mass;
         this.imageView = imageView;
-        this.xVelocity = 0;
-        this.yVelocity = 0;
-        this.imageView = imageView;
-
+        this.updateImageLocation();
     }
 
-    public void updateLocation()
+    public void move()
     {
-        /// TODO: update x and y.
-        this.x += 1;    // just for test
-        this.y += 2;    // just for test
+        this.calcLoc();
         this.updateImageLocation();
+    }
+
+    private void calcLoc() {
+        this.x += this.xAcceleration * Math.pow(MainActivity.TIME_INTERVAL_SECONDS, 2) / 2 +
+                this.xVelocity * MainActivity.TIME_INTERVAL_SECONDS;
+        this.y += this.yAcceleration * Math.pow(MainActivity.TIME_INTERVAL_SECONDS, 2) / 2 +
+                this.yVelocity * MainActivity.TIME_INTERVAL_SECONDS;
     }
 
     private void updateImageLocation() {
