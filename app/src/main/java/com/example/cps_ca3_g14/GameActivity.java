@@ -16,6 +16,7 @@ public class GameActivity extends AppCompatActivity {
     boolean usingGyroscope = true;
     Board board;
     Ball ball;
+    final int ballRadius = 40;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class GameActivity extends AppCompatActivity {
                 0,
                 0,
                 1,
+                this.ballRadius,
                 ballImage
         );
 

@@ -1,5 +1,6 @@
 package com.example.cps_ca3_g14;
 
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 public class Ball {
@@ -7,10 +8,11 @@ public class Ball {
     float xVelocity, yVelocity;
     float xAcceleration, yAcceleration;
     float mass;
+    int radius;
     ImageView imageView;
 
     public Ball(float x, float y, float xVelocity, float yVelocity, float xAcceleration,
-                float yAcceleration, float mass, ImageView imageView) {
+                float yAcceleration, float mass, int radius, ImageView imageView) {
         this.x = x;
         this.y = y;
         this.xVelocity = xVelocity;
@@ -19,6 +21,8 @@ public class Ball {
         this.yAcceleration = yAcceleration;
         this.mass = mass;
         this.imageView = imageView;
+        this.radius = radius;
+        this.imageView.getLayoutParams().width = 2 * this.radius;
         this.updateImageLocation();
     }
 
