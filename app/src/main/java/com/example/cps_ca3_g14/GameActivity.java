@@ -67,6 +67,10 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void shootTheBall(View view) {
+        Pair<Integer, Integer> randomPoint = board.getRandomPoint();
+        this.ball.setX(randomPoint.first);
+        this.ball.setY(randomPoint.second);
+        /// TODO: reset ball velocity and acceleration.
     }
 
     private void checkCollision() {
