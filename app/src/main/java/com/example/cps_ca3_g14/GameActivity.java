@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,7 +25,6 @@ public class GameActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         // TODO: barrier token has not been posted or has already been removed
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_game);
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.SENSOR_TYPE);
@@ -36,8 +38,8 @@ public class GameActivity extends AppCompatActivity {
         this.ball = new Ball(
                 startingPoint.first.floatValue(),
                 startingPoint.second.floatValue(),
-                10,
-                10,
+                50,
+                50,
                 0,
                 0,
                 1,
@@ -53,17 +55,46 @@ public class GameActivity extends AppCompatActivity {
         findViewById(R.id.start_button).setVisibility(View.INVISIBLE);
         findViewById(R.id.shoot_ball).setVisibility(View.VISIBLE);
         /// TODO: create Sensor instance.
-        /// TODO: set random for x, y and others.
         ball.move();
         Timer t = new Timer();
         t.schedule(new TimerTask() {
                 @Override
-                public void run() { ball.move();
+                public void run() {
+                    ball.move();
+                    checkCollision();
                 }
             }, (int) MainActivity.TIME_INTERVAL_SECONDS * 1000, 1);
     }
 
     public void shootTheBall(View view) {
-
     }
+
+    private void checkCollision() {
+        /// TODO: in case of collision, reduce the velocity.
+        this.checkCeilingCollision();
+        this.checkFloorCollision();
+        this.checkLeftWallCollision();
+        this.checkRightWallCollision();
+    }
+
+    private void checkCeilingCollision() {
+        if (this.ball.getY() <= 0)
+            this.ball.reverseYVelocity();
+    }
+
+    private void checkFloorCollision() {
+        if (this.ball.getY() + 2 * this.ballRadius >= this.board.getHeight())
+            this.ball.reverseYVelocity();
+    }
+
+    private void checkLeftWallCollision() {
+        if (this.ball.getX() <= 0)
+            this.ball.reverseXVelocity();
+    }
+
+    private void checkRightWallCollision() {
+        if (this.ball.getX() + 2 * this.ballRadius >= this.board.getWidth())
+            this.ball.reverseXVelocity();
+    }
+
 }

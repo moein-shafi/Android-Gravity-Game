@@ -23,6 +23,7 @@ public class Ball {
         this.imageView = imageView;
         this.radius = radius;
         this.imageView.getLayoutParams().width = 2 * this.radius;
+        this.imageView.getLayoutParams().height = 2 * this.radius;
         this.updateImageLocation();
     }
 
@@ -42,6 +43,18 @@ public class Ball {
     private void updateImageLocation() {
         imageView.setX(this.x);
         imageView.setY(this.y);
+    }
+
+    public float getX() { return this.x; }
+
+    public float getY() { return this.y; }
+
+    public void reverseXVelocity() {
+        this.xVelocity = -this.xVelocity;
+    }
+
+    public void reverseYVelocity() {
+        this.yVelocity = -this.yVelocity;
     }
 
 }
