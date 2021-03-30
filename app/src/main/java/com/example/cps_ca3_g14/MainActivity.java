@@ -7,9 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "UsedSensor";
-    public static final String usingGyroscope = "using Gyroscope!";
-    public static final String usingGravity = "using Gravity!";
+    public static final String SENSOR_TYPE = "SensorType";
+    public static final String GYROSCOPE = "Gyroscope";
+    public static final String GRAVITY = "Gravity";
+    public static final float TIME_INTERVAL_SECONDS = 0.01f;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -19,12 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void useGyroscope(View view) {
         Intent intent = new Intent(this, GameActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, usingGyroscope);
+        intent.putExtra(SENSOR_TYPE, GYROSCOPE);
         startActivity(intent);
     }
     public void useGravity(View view) {
         Intent intent = new Intent(this, GameActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, usingGravity);
+        intent.putExtra(SENSOR_TYPE, GRAVITY);
         startActivity(intent);
     }
 
