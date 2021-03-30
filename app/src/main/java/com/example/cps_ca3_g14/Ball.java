@@ -1,17 +1,18 @@
 package com.example.cps_ca3_g14;
 
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 public class Ball {
-
     float x, y;
     float xVelocity, yVelocity;
     float xAcceleration, yAcceleration;
     float mass;
+    int radius;
     ImageView imageView;
 
     public Ball(float x, float y, float xVelocity, float yVelocity, float xAcceleration,
-                float yAcceleration, float mass, ImageView imageView) {
+                float yAcceleration, float mass, int radius, ImageView imageView) {
         this.x = x;
         this.y = y;
         this.xVelocity = xVelocity;
@@ -20,23 +21,48 @@ public class Ball {
         this.yAcceleration = yAcceleration;
         this.mass = mass;
         this.imageView = imageView;
-        this.xVelocity = 0;
-        this.yVelocity = 0;
-        this.imageView = imageView;
-
+        this.radius = radius;
+        this.imageView.getLayoutParams().width = 2 * this.radius;
+        this.imageView.getLayoutParams().height = 2 * this.radius;
+        this.updateImageLocation();
     }
 
-    public void updateLocation()
+    public void move()
     {
-        /// TODO: update x and y.
-        this.x += 1;    // just for test
-        this.y += 2;    // just for test
+        this.calcLoc();
         this.updateImageLocation();
+    }
+
+    private void calcLoc() {
+        this.x += this.xAcceleration * Math.pow(MainActivity.TIME_INTERVAL_SECONDS, 2) / 2 +
+                this.xVelocity * MainActivity.TIME_INTERVAL_SECONDS;
+        this.y += this.yAcceleration * Math.pow(MainActivity.TIME_INTERVAL_SECONDS, 2) / 2 +
+                this.yVelocity * MainActivity.TIME_INTERVAL_SECONDS;
     }
 
     private void updateImageLocation() {
         imageView.setX(this.x);
         imageView.setY(this.y);
+    }
+
+    public float getX() { return this.x; }
+
+    public float getY() { return this.y; }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    public void reverseXVelocity() {
+        this.xVelocity = -this.xVelocity;
+    }
+
+    public void reverseYVelocity() {
+        this.yVelocity = -this.yVelocity;
     }
 
 }
