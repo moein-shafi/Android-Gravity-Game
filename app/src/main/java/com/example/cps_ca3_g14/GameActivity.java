@@ -49,7 +49,7 @@ public class GameActivity extends AppCompatActivity {
                 tethaY = newTethaY;
                 tethaZ = newTethaZ;
 
-                ball.gravityUpdate(-newXGravity, newYGravity, newZGravity, deltaT);
+                ball.gravityUpdate(newXGravity, newYGravity, newZGravity, deltaT);
             }
             else {
                 ball.gravityUpdate(-sensorEvent.values[0], sensorEvent.values[1], sensorEvent.values[2] , deltaT);

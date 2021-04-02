@@ -11,7 +11,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String GYROSCOPE = "Gyroscope";
     public static final String GRAVITY = "Gravity";
     public static final int ACCELERATION_SCALE = 100;
-    public static final float TIME_INTERVAL_SECONDS = 0.01f;
+    public static final int V_MINIMUM_THRESHOLD = 200;
+    public static final int WALL_MINIMUM_THRESHOLD = 10;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
