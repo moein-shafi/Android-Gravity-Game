@@ -6,20 +6,16 @@ import android.util.Pair;
 import java.util.Random;
 
 public class Board {
-    private int width;
-    private int height;
+    public static final float KINETIC_FRICTION = 0.07f;
+    public static final float STATIC_FRICTION = 0.15f;
+    public static final int G = 10;
+
+    public static int width;
+    public static int height;
 
     public Board() {
-        this.width = Resources.getSystem().getDisplayMetrics().widthPixels;
-        this.height = Resources.getSystem().getDisplayMetrics().heightPixels;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public int getWidth() {
-        return width;
+        width = Resources.getSystem().getDisplayMetrics().widthPixels;
+        height = Resources.getSystem().getDisplayMetrics().heightPixels;
     }
 
     public Pair<Integer, Integer> getRandomPoint() {
