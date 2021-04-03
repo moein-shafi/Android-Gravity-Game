@@ -12,7 +12,10 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.Timer;
 import java.util.TimerTask;
