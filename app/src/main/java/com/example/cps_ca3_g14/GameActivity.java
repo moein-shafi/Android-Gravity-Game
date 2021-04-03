@@ -122,14 +122,12 @@ public class GameActivity extends AppCompatActivity {
     public void startGame(View view) {
         findViewById(R.id.start_button).setVisibility(View.INVISIBLE);
         findViewById(R.id.shoot_ball).setVisibility(View.VISIBLE);
-//        ball.move();
 
         Timer t = new Timer();
         t.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     ball.updateImageLocation();
-//                    checkCollision();
                 }
             }, 0, 20);
     }
@@ -140,33 +138,5 @@ public class GameActivity extends AppCompatActivity {
         this.ball.setY0(randomPoint.second);
         this.ball.resetV();
     }
-
-//    private void checkCollision() {
-//        /// DONE: in case of collision, reduce the velocity.
-//        this.checkCeilingCollision();
-//        this.checkFloorCollision();
-//        this.checkLeftWallCollision();
-//        this.checkRightWallCollision();
-//    }
-
-//    private void checkCeilingCollision() {
-//        if (this.ball.getY() <= 0)
-//            this.ball.reverseYVelocity();
-//    }
-//
-//    private void checkFloorCollision() {
-//        if (this.ball.getY() + 2 * this.ballRadius >= Board.height)
-//            this.ball.reverseYVelocity();
-//    }
-//
-//    private void checkLeftWallCollision() {
-//        if (this.ball.getX() <= 0)
-//            this.ball.reverseXVelocity();
-//    }
-//
-//    private void checkRightWallCollision() {
-//        if (this.ball.getX() + 2 * this.ballRadius >= Board.width)
-//            this.ball.reverseXVelocity();
-//    }
 
 }
